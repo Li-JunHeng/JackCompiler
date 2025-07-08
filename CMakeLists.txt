@@ -44,13 +44,3 @@ target_link_options(JackCompiler
     PRIVATE
       $<$<CONFIG:Release>:-s>
 )
-
-set(EXTRA_OUTPUT_DIR "/Users/lijunheng/Tools/Nand2Tetris")
-file(MAKE_DIRECTORY ${EXTRA_OUTPUT_DIR})
-
-add_custom_command(TARGET JackCompiler POST_BUILD
-    COMMAND ${CMAKE_COMMAND} -E copy
-        $<TARGET_FILE:JackCompiler>
-        ${EXTRA_OUTPUT_DIR}/
-    COMMENT "复制 JackCompiler 到 ${EXTRA_OUTPUT_DIR}"
-)
